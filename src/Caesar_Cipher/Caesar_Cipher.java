@@ -35,29 +35,55 @@ public class Caesar_Cipher {
         StringBuilder encrypted_text = new StringBuilder();
 
         // convert to character array for manipulation
-        char c_array [] = text_to_encrypt.toCharArray();
+        char  [] c_array = text_to_encrypt.toCharArray();
 
         // for loop to iterate through character array
-        for(int i = 0; i < c_array.length; i++){
+        for (char c : c_array) {
 
             // check if character is a space
-            if(c_array[i] != ' ') {
+            if (c != ' ') {
 
-                int start_position = c_array[i] - 'a'; // subtract 'a' to account for ascii values >= 29
+                int start_position = c - 'a'; // subtract 'a' to account for ascii values >= 29
                 int end_position = (start_position + shift_by) % 26; // mod 26 to account for values >= 26
 
                 // type cast integer into character
                 char new_character = (char) ('a' + end_position); // add 'a' back for ascii values
 
                 encrypted_text.append(new_character);
-            }
-            else {
+            } else {
                 // if character is a space append it to encrypted_text string
-                encrypted_text.append(c_array[i]);
+                encrypted_text.append(c);
             }
         }
 
         // convert string builder to string for return
         return encrypted_text.toString();
+    }
+
+    public String undo_Caesar(String text_to_decrypt, int shift_by) {
+
+        // calculate new character value
+        int shift_to = 26 - (shift_by % 26);
+
+        StringBuilder decrypted_text = new StringBuilder();
+
+        char [] c_array = text_to_decrypt.toCharArray();
+
+        for (char c : c_array) {
+            if (c != ' ') {
+                int start_position = c - 'a'; // subtract 'a' to account for ascii values >= 29
+                int end_position = (start_position + shift_to) % 26; // mod 26 to account for values >= 26
+
+                // type cast integer into character
+                char new_character = (char) ('a' + end_position); // add 'a' back for ascii values
+
+                decrypted_text.append(new_character);
+            } else {
+                decrypted_text.append(c);
+            }
+        }
+
+        // convert string builder to string for return
+        return decrypted_text.toString();
     }
 }
