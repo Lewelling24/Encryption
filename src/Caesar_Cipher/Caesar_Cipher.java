@@ -29,7 +29,7 @@ public class Caesar_Cipher {
     }
 
     // method to apply a Caesar shift to a given string
-    public String apply_Caesar(String text_to_encrypt, int shift_by) {
+    public static String apply_Caesar(String text_to_encrypt, int shift_by) {
 
         // use string builder to form string for return
         StringBuilder encrypted_text = new StringBuilder();
@@ -60,7 +60,7 @@ public class Caesar_Cipher {
         return encrypted_text.toString();
     }
 
-    public String undo_Caesar(String text_to_decrypt, int shift_by) {
+    public static String undo_Caesar(String text_to_decrypt, int shift_by) {
 
         // calculate new character value
         int shift_to = 26 - (shift_by % 26);
