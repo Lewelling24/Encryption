@@ -31,18 +31,22 @@ public class Caesar_Cipher {
     // method to apply a Caesar shift to a given string
     public static String apply_Caesar(String text_to_encrypt, int shift_by) {
 
+        String lower_case_text_to_encrypt = text_to_encrypt.toLowerCase();
+
         // use string builder to form string for return
         StringBuilder encrypted_text = new StringBuilder();
 
         // convert to character array for manipulation
-        char  [] c_array = text_to_encrypt.toCharArray();
+        char  [] c_array = lower_case_text_to_encrypt.toCharArray();
 
         // for loop to iterate through character array
         for (char c : c_array) {
 
+
             // check if character is a space
             if (c != ' ') {
 
+                // check case for
                 int start_position = c - 'a'; // subtract 'a' to account for ascii values >= 29
                 int end_position = (start_position + shift_by) % 26; // mod 26 to account for values >= 26
 
