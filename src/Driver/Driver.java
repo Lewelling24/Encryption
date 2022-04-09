@@ -3,6 +3,7 @@ package Driver;
 
 import Caesar_Cipher.Caesar_Cipher;
 import SHA.SHA256;
+import SHA.SHA512;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -26,8 +27,8 @@ public class Driver {
         System.out.println(hello_again); */
 
 
-        // Driver for SHA-256 class
-        try {
+        // Driver for SHA256 class
+        /*try {
             SHA256 sha256 = new SHA256();
 
             System.out.println("\nHashCode generated using SHA-256 for:");
@@ -40,6 +41,20 @@ public class Driver {
         }
         catch (NoSuchAlgorithmException N) {
             System.out.println("Error: No algorithm found");
+        }*/
+
+        //Driver for SHA512 class
+        try {
+            System.out.println("\nHashCode generated using SHA-512 for:");
+
+            String hash_test = "IHaLBoC";
+
+            System.out.println("\n"+hash_test);
+
+            System.out.println("\n" + SHA512.getSHA512(hash_test));
+        }
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
 
 
